@@ -34,7 +34,6 @@ def dfs(state, goal, path, visited, depth, limit):
     if state == goal:
         return path
 
-    # Depth limit reached
     if depth == limit:
         return None
 
@@ -61,7 +60,7 @@ def dfs(state, goal, path, visited, depth, limit):
 
 
 def solve(start, goal):
-    for limit in range(50):
+    for limit in range(2):
         result = dfs(
             start,
             goal,
@@ -95,4 +94,5 @@ if solution:
         print("Step", i)
         print_puzzle(state)
 else:
-    print("No solution found.")
+    print("Goal state not reached.")
+    print("Limit reached")
