@@ -1,3 +1,4 @@
+
 import random
 
 def calculate_heuristic(state):
@@ -52,6 +53,7 @@ def hill_climbing_4_queens():
         print(f"Step {step}: Moved to State = {current_state}, Attacking Pairs (h) = {current_h}")
 
     print("-" * 50)
+
     if current_h == 0:
         print(f"SUCCESS: Found Global Solution in {step} steps: {current_state}")
     else:
@@ -62,13 +64,17 @@ def hill_climbing_4_queens():
 
 def print_board(state):
     n = len(state)
-    print("\nVisual Board Representation:")
+    print("\nChess Board Representation:")
+
     for row in range(n):
-        line = ""
         for col in range(n):
-            line += " Q " if state[col] == row else " . "
-        print(line)
+            if state[col] == row:
+                print(" Q ", end="")
+            else:
+                print(" . ", end="")
+        print()
 
 
 if __name__ == "__main__":
     final_state, final_h = hill_climbing_4_queens()
+    print_board(final_state)
